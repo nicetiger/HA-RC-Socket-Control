@@ -1,0 +1,78 @@
+esphome:
+  name: sensorwohnzimmer
+  platform: ESP8266
+  board: d1_mini_pro
+  includes:
+    - funk.h
+  libraries:
+    - rc-switch
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: ""
+
+ota:
+  password: ""
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: !secret ap_ssid
+    password: !secret 
+
+captive_portal:
+
+# use default config for i2c
+i2c:
+
+sensor:
+  - platform: bmp085
+    temperature:
+      name: "Outside Temperature"
+    pressure:
+      name: "Outside Pressure"
+    update_interval: 60s
+
+# add four channels 
+switch:
+- platform: custom
+  lambda: |-
+    auto my_funk_output1 = new MyFunkOutput2("10000");
+    App.register_component(my_funk_output1);
+    return {my_funk_output1};
+
+  switches:
+    name: "Channel 1"
+
+- platform: custom
+  lambda: |-
+    auto my_funk_output2 = new MyFunkOutput2("01000");
+    App.register_component(my_funk_output2);
+    return {my_funk_output2};
+
+  switches:
+    name: "Channel 2"
+
+- platform: custom
+  lambda: |-
+    auto my_funk_output3 = new MyFunkOutput2("00100");
+    App.register_component(my_funk_output3);
+    return {my_funk_output3};
+
+  switches:
+    name: "Channel 3"
+
+- platform: custom
+  lambda: |-
+    auto my_funk_output4 = new MyFunkOutput2("00010");
+    App.register_component(my_funk_output4);
+    return {my_funk_output4};
+
+  switches:
+    name: "Channel 4"
