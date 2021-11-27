@@ -27,7 +27,7 @@ docker run --rm -v ${PWD}:/config -it esphome/esphome run livingroom.yaml
 
 ## The wiring and soldering part
 
-Beer button schema:
+schema and layout:
 
 ![Schema](/Board/schema.png)
 ![Board](/Board/board.png)
