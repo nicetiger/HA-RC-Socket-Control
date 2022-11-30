@@ -22,12 +22,12 @@ https://aisler.net/p/YNNSZLZG
 4. Flash the NodeMCU using the following command or one of [ESPHome](https://esphome.io)'s own Getting Started guides:
 
 ```bash
-docker run --rm -v ${PWD}:/config -it esphome/esphome run livingroom.yaml
+docker run --rm -v ${PWD}:/config -it esphome/esphome run sensor.yaml
 ```
 
 ## The wiring and soldering part
 
-Beer button schema:
+schema and layout:
 
 ![Schema](/Board/schema.png)
 ![Board](/Board/board.png)
