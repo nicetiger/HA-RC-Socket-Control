@@ -9,6 +9,8 @@ esphome:
 
 # Enable logging
 logger:
+#  level: DEBUG
+#  baud_rate: 115200
 
 # Enable Home Assistant API
 api:
@@ -34,9 +36,9 @@ i2c:
 sensor:
   - platform: bmp085
     temperature:
-      name: "Outside Temperature"
+      name: "Temperature"
     pressure:
-      name: "Outside Pressure"
+      name: "Pressure"
     update_interval: 60s
 
 # add four channels 
@@ -49,6 +51,7 @@ switch:
 
   switches:
     name: "Channel 1"
+    id: funk_ch_1
 
 - platform: custom
   lambda: |-
@@ -58,6 +61,7 @@ switch:
 
   switches:
     name: "Channel 2"
+    id: funk_ch_2
 
 - platform: custom
   lambda: |-
@@ -67,6 +71,7 @@ switch:
 
   switches:
     name: "Channel 3"
+    id: funk_ch_3
 
 - platform: custom
   lambda: |-
@@ -76,3 +81,4 @@ switch:
 
   switches:
     name: "Channel 4"
+    id: funk_ch_4
